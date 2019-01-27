@@ -1,2 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.defate.mac.common_android"/>
+          package="com.defate.mac.common_android">
+    <application>
+        <service
+            android:name=".BigTextIntentService"
+            android:exported="false">
+        </service>
+    </application>
+</manifest>

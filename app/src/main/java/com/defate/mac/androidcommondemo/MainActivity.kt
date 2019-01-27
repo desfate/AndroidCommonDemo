@@ -6,6 +6,9 @@ import android.support.v4.app.NotificationCompat
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
+import com.defate.mac.androidcommondemo.kotilins.constructor_clazz.KotlinConstructor
+import com.defate.mac.common_android.BigTextStyleReminderAppData
+import com.defate.mac.common_android.NotificationServices
 import com.defate.mac.common_android.NotificationTools
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,25 +20,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        val events = arrayOf("123","32","sdfsg")
+        var bigTextStyleReminderAppData: BigTextStyleReminderAppData = BigTextStyleReminderAppData.getInstance()
+        bigTextStyleReminderAppData.setClazz(MainActivity::class.java)
 
-        val inboxStyle = NotificationCompat.InboxStyle()
-        inboxStyle.setBigContentTitle("Event tracker details:")
-        inboxStyle.setSummaryText("test"); //底部栏文本
-        for (i in 0 until events.size) {
-            inboxStyle.addLine(events[i])
-
-        }
-
-        NotificationTools.showNotication(this,
-            NotificationTools.getNotificationCompatBuilder(this).setContentTitle("xxx") //设置通知栏标题
-            .setContentText("xxx") //设置通知栏显示内容
-            .setPriority(NotificationCompat.PRIORITY_MAX) //设置通知优先级  //五个优先级  从-2到2
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setAutoCancel(true) //设置这个标志当用户单击面板就可以将通知取消)
-            .setStyle(inboxStyle))
-
-
+        NotificationServices.getBigTextStyleNotication(this, bigTextStyleReminderAppData)
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
