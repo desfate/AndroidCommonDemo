@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-package com.defate.mac.common_android;
+package com.defate.mac.common_android.notification.services;
 
 import android.app.IntentService;
 import android.app.Notification;
@@ -23,6 +23,9 @@ import android.graphics.BitmapFactory;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
+import com.defate.mac.common_android.R;
+import com.defate.mac.common_android.notification.NotificationTools;
+import com.defate.mac.common_android.notification.data.BigTextStyleReminderAppData;
 
 
 import java.util.concurrent.TimeUnit;

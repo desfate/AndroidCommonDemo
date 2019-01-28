@@ -1,4 +1,4 @@
-package com.defate.mac.common_android;
+package com.defate.mac.common_android.notification.data.base;
 /** Represents standard data needed for a Notification. */
 
 /**

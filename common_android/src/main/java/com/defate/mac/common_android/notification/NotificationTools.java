@@ -1,15 +1,17 @@
-package com.defate.mac.common_android;
+package com.defate.mac.common_android.notification;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
+import android.support.v4.app.NotificationManagerCompat;
+import android.view.View;
+import com.defate.mac.common_android.notification.data.base.MockNotificationData;
 
 /**
  * android notification tools class
@@ -35,10 +37,23 @@ import android.util.Log;
  */
 public class NotificationTools {
 
-    public static final int PUSHID = 1;
-
     private static final String PRIMARY_CHANNEL_ID = "static";
     private static final String PRIMARY_CHANNEL = "Primary Channel";
+
+    /**
+     * 校验notification 是否启用
+     * @param context
+     * @return
+     */
+    public static boolean checkNotificationEnable(Context context){
+        NotificationManagerCompat mNotificationManagerCompat = NotificationManagerCompat.from(context.getApplicationContext());
+        boolean areNotificationsEnabled = mNotificationManagerCompat.areNotificationsEnabled();
+        return areNotificationsEnabled;
+    }
+
+
+
+
 
     /**
      * 根据当前sdk版本生成notificationCompat
@@ -71,6 +86,12 @@ public class NotificationTools {
         mNotificationManager.notify(notificationChannelId, notify);
     }
 
+    /**
+     * 获取渠道id
+     * @param context
+     * @param mockNotificationData
+     * @return
+     */
     public static String createNotificationChannel(Context context, MockNotificationData mockNotificationData) {
         // NotificationChannels are required for Notifications on O (API 26) and above.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -107,5 +128,42 @@ public class NotificationTools {
             return null;
         }
     }
+
+    public static Uri resourceToUri(Context context, int resId) {
+        return Uri.parse(
+                ContentResolver.SCHEME_ANDROID_RESOURCE
+                        + "://"
+                        + context.getResources().getResourcePackageName(resId)
+                        + "/"
+                        + context.getResources().getResourceTypeName(resId)
+                        + "/"
+                        + context.getResources().getResourceEntryName(resId));
+    }
+
+
+    /**
+     * Helper method for the SnackBar action, i.e., if the user has this application's notifications
+     * disabled, this opens up the dialog to turn them back on after the user requests a
+     * Notification launch.
+     *
+     * IMPORTANT NOTE: You should not do this action unless the user takes an action to see your
+     * Notifications like this sample demonstrates. Spamming users to re-enable your notifications
+     * is a bad idea.
+     */
+    /**
+     * 跳转到通知设置页面
+     * @param context
+     */
+    private void openNotificationSettingsForApp(Context context) {
+        // Links to this app's notification settings.
+        Intent intent = new Intent();
+        intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+        intent.putExtra("app_package", context.getPackageName());
+        intent.putExtra("app_uid", context.getApplicationInfo().uid);
+        context.startActivity(intent);
+    }
+
+
+
 
 }

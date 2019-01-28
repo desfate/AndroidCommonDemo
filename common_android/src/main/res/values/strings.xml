@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">common_android</string>
+    <string name="reply_label">reply</string>
 </resources>

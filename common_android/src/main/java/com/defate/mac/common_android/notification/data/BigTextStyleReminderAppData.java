@@ -1,9 +1,14 @@
-package com.defate.mac.common_android;
+package com.defate.mac.common_android.notification.data;
 
 import android.app.NotificationManager;
 import android.support.v4.app.NotificationCompat;
+import com.defate.mac.common_android.notification.data.base.MockNotificationData;
 
 /** Represents data needed for BigTextStyle Notification. */
+
+/**
+ * 带两个按钮风格的文本展示
+ */
 public class BigTextStyleReminderAppData extends MockNotificationData {
 
     private static BigTextStyleReminderAppData sInstance = null;

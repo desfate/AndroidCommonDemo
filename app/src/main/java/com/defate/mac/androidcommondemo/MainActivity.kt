@@ -2,14 +2,14 @@ package com.defate.mac.androidcommondemo
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v4.app.NotificationCompat
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
-import com.defate.mac.androidcommondemo.kotilins.constructor_clazz.KotlinConstructor
-import com.defate.mac.common_android.BigTextStyleReminderAppData
-import com.defate.mac.common_android.NotificationServices
-import com.defate.mac.common_android.NotificationTools
+import com.defate.mac.common_android.notification.data.BigTextStyleReminderAppData
+import com.defate.mac.common_android.notification.NotificationServices
+import com.defate.mac.common_android.notification.data.BigPictureStyleSocialAppData
+import com.defate.mac.common_android.notification.data.InboxStyleEmailAppData
+import com.defate.mac.common_android.notification.data.MessagingStyleCommsAppData
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,10 +20,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        var bigTextStyleReminderAppData: BigTextStyleReminderAppData = BigTextStyleReminderAppData.getInstance()
-        bigTextStyleReminderAppData.setClazz(MainActivity::class.java)
+        var bigTextStyleReminderAppData: MessagingStyleCommsAppData = MessagingStyleCommsAppData.getInstance(this)
+        bigTextStyleReminderAppData.setmClazz(MainActivity::class.java)
 
-        NotificationServices.getBigTextStyleNotication(this, bigTextStyleReminderAppData)
+        NotificationServices.getMessagingStyleNotification(this, bigTextStyleReminderAppData)
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

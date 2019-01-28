@@ -2,7 +2,7 @@
           package="com.defate.mac.common_android">
     <application>
         <service
-            android:name=".BigTextIntentService"
+            android:name=".notification.services.BigTextIntentService"
             android:exported="false">
         </service>
     </application>

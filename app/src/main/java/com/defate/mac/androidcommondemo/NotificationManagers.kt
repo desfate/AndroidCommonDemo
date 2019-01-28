@@ -2,7 +2,7 @@ package com.defate.mac.androidcommondemo
 
 import android.content.Context
 import android.support.v4.app.NotificationCompat
-import com.defate.mac.common_android.NotificationTools
+import com.defate.mac.common_android.notification.NotificationTools
 
 /**
  * 客户端的通知栏相关配置  https://github.com/googlesamples/android-Notifications  一部分代码来自
