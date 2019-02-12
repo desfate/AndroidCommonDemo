@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var key : Boolean = true
+    var key: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,30 +37,23 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
 
+        var key: Boolean = true
+
         main_text.setOnClickListener {
-            ScreenTools.listenerWindows(this, object : View.OnSystemUiVisibilityChangeListener {
-                override fun onSystemUiVisibilityChange(visibility: Int) {
-                    // Note that system bars will only be "visible" if none of the
-                    // LOW_PROFILE, HIDE_NAVIGATION, or FULLSCREEN flags are set.
-                    if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
-                        // TODO: The system bars are visible. Make any desired
-                        // adjustments to your UI, such as showing the action bar or
-                        // other navigational controls.
-
-                    } else {
-                        // TODO: The system bars are NOT visible. Make any desired
-                        // adjustments to your UI, such as hiding the action bar or
-                        // other navigational controls.
-
-                    }
-                }
-            })
+            if (key) {
+                key = false
+                ScreenTools.toggleHideyBar(this)
+            } else {
+                key = true
+                ScreenTools.showSystemUI(this)
+            }
         }
 
         if (Build.VERSION.SDK_INT < 16) { //在Android 4.0和更低版本上隐藏状态栏
             window.setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN)
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
         } else { //在Android 4.1及更高版本上隐藏状态栏
             // Hide the status bar.
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -91,9 +84,9 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.action_settings -> ScreenTools.toggleHideyBar(this)
         }
+        return true
     }
 }
