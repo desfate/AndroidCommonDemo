@@ -5,7 +5,7 @@ import android.content.Context;
 import android.view.View;
 
 public class ScreenTools {
-
+    
     public static void hideSystemUI(Activity activity) {
         // Enables regular immersive mode.
         // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.

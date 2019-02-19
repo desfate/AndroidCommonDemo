@@ -8,10 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
-import com.defate.mac.common_android.notification.data.BigTextStyleReminderAppData
 import com.defate.mac.common_android.notification.NotificationServices
-import com.defate.mac.common_android.notification.data.BigPictureStyleSocialAppData
-import com.defate.mac.common_android.notification.data.InboxStyleEmailAppData
 import com.defate.mac.common_android.notification.data.MessagingStyleCommsAppData
 import com.defate.mac.common_android.screen.ScreenTools
 
@@ -22,8 +19,13 @@ class MainActivity : AppCompatActivity() {
 
     var key: Boolean = true
 
+//    private lateinit var customDrawableView: CustodrawableView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        customDrawableView = CustodrawableView(this)
+
+//        setContentView(customDrawableView)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
@@ -31,11 +33,6 @@ class MainActivity : AppCompatActivity() {
         bigTextStyleReminderAppData.setmClazz(MainActivity::class.java)
 
         NotificationServices.getMessagingStyleNotification(this, bigTextStyleReminderAppData)
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
 
         var key: Boolean = true
 
@@ -47,6 +44,11 @@ class MainActivity : AppCompatActivity() {
                 key = true
                 ScreenTools.showSystemUI(this)
             }
+        }
+
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
         }
 
         if (Build.VERSION.SDK_INT < 16) { //在Android 4.0和更低版本上隐藏状态栏
