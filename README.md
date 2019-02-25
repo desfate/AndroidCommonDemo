@@ -3,3 +3,4 @@
 // kotlin 的整理学习
 1. notification整理学习   https://github.com/googlesamples/android-Notifications 借鉴官方例子
 2. 全屏管理学习    https://github.com/googlesamples/android-BasicImmersiveMode 来自google官方实例
+3.workManager  https://github.com/googlecodelabs/android-workmanager   
