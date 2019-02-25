@@ -22,15 +22,15 @@
 
     <fragment
             android:id="@+id/fragment_scp"
-            android:name="com.defate.mac.androidcommondemo.samples.ScpFragment"
+            android:name="com.defate.mac.androidcommondemo.samples.fragment.ScpFragment"
             android:label="@string/fragment_scp"
             tools:layout="@layout/fragment_scp" >
         <action android:id="@+id/action_fragment_scp_to_scpListFragment" app:destination="@id/scpListFragment"
                 app:enterAnim="@anim/nav_default_enter_anim"/>
     </fragment>
-    <fragment android:id="@+id/scpDetailFragment" android:name="com.defate.mac.androidcommondemo.ScpDetailFragment"
+    <fragment android:id="@+id/scpDetailFragment" android:name="com.defate.mac.androidcommondemo.samples.fragment.ScpDetailFragment"
               android:label="fragment_scp_detail" tools:layout="@layout/fragment_scp_detail"/>
-    <fragment android:id="@+id/scpListFragment" android:name="com.defate.mac.androidcommondemo.ScpListFragment"
+    <fragment android:id="@+id/scpListFragment" android:name="com.defate.mac.androidcommondemo.samples.fragment.ScpListFragment"
               android:label="fragment_scp_list" tools:layout="@layout/fragment_scp_list">
         <action android:id="@+id/action_scpListFragment_to_scpDetailFragment" app:destination="@id/scpDetailFragment"
                 app:enterAnim="@anim/nav_default_enter_anim"/>

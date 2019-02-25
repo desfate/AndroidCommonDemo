@@ -1,4 +1,4 @@
-package com.defate.mac.androidcommondemo.samples
+package com.defate.mac.androidcommondemo.samples.fragment
 
 import android.support.v4.app.Fragment
 
