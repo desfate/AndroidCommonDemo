@@ -27,6 +27,9 @@
         <activity android:name=".ToolBarActivity" />
 
         <activity android:name=".samples.BlurredActivity">
+        </activity>
+
+        <activity android:name=".samples.PermissionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

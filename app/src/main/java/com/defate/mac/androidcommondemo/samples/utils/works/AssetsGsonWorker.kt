@@ -27,7 +27,6 @@ class AssetsGsonWorker(context: Context,  workerParams: WorkerParameters) : Work
     override fun doWork(): Result {
 
         //TODO 需要在任务中执行的业务逻辑
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 
         //将要做的工作
 

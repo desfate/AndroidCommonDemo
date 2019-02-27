@@ -51,10 +51,6 @@ public class NotificationTools {
         return areNotificationsEnabled;
     }
 
-
-
-
-
     /**
      * 根据当前sdk版本生成notificationCompat
      * @param context

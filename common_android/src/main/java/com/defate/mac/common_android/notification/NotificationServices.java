@@ -30,6 +30,26 @@ import com.defate.mac.common_android.notification.services.MessagingIntentServic
 public class NotificationServices {
 
     /**
+     *  普通类型的消息
+     * @param context
+     * @param title
+     * @param content
+     * @param primary_channel_id
+     * @param notificationChannelId
+     */
+    public static void getNormalNotication(Context context, String title, String content, String primary_channel_id, int notificationChannelId){
+        NotificationTools.showNotication(
+                notificationChannelId,
+                context,
+                NotificationTools.getNotificationCompatBuilder(context, primary_channel_id)
+                        .setSmallIcon(R.drawable.ic_launcher)
+                        .setContentTitle(title)
+                        .setContentText(content)
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setVibrate(new long[0]));
+    }
+
+    /**
      * 比如需要唤醒getBigTextStyle类型的消息
      * @param context
      * @param data
@@ -149,7 +169,6 @@ public class NotificationServices {
 
         NotificationTools.showNotication(data.getNotificationChannelId(), context, notificationCompatBuilder);
     }
-
 
     public static void getBigPictureStyleNotication(Context context, BigPictureStyleSocialAppData data){
 

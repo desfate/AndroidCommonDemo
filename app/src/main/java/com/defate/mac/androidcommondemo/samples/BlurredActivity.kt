@@ -1,104 +1,118 @@
 package com.defate.mac.androidcommondemo.samples
 
-import android.Manifest
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.provider.MediaStore
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
-import java.util.*
-import com.defate.mac.androidcommondemo.R
+import android.text.TextUtils
+import android.util.Log
+import android.view.View
+import android.widget.SeekBar
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_blurred.*
+import com.defate.mac.androidcommondemo.R
+import com.defate.mac.androidcommondemo.samples.utils.KEY_IMAGE_URI
+import com.defate.mac.androidcommondemo.samples.viewmodel.BlurredViewModel
 
 /**
  * 模糊图片activity
  */
 class BlurredActivity: AppCompatActivity(){
 
-    /**
-     * 需要的权限
-     */
-    private val sPermissions = Arrays.asList(
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.WRITE_EXTERNAL_STORAGE
-    )
+    // Get the ViewModel
+    lateinit var mViewModel : BlurredViewModel
 
-    private var mPermissionRequestCount: Int = 0
-    private val KEY_PERMISSIONS_REQUEST_COUNT = "KEY_PERMISSIONS_REQUEST_COUNT"
-    private val MAX_NUMBER_REQUEST_PERMISSIONS = 2
-    private val REQUEST_CODE_IMAGE = 100
-    private val REQUEST_CODE_PERMISSIONS = 101
+    var burLevel: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (savedInstanceState != null) {
-            mPermissionRequestCount = savedInstanceState.getInt(KEY_PERMISSIONS_REQUEST_COUNT, 0)
-        }
-
-        // Make sure the app has correct permissions to run
-        requestPermissionsIfNecessary()
-
         setContentView(R.layout.activity_blurred)
 
-        main_text.setOnClickListener {
-            val chooseIntent = Intent(
-                Intent.ACTION_PICK,
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            )
-            startActivityForResult(chooseIntent, REQUEST_CODE_IMAGE)
+        mViewModel = ViewModelProviders.of(this).get(BlurredViewModel::class.java!!)
+
+        val imageUriExtra = intent.getStringExtra(KEY_IMAGE_URI)
+        mViewModel.setImageUri(imageUriExtra)
+
+        if (mViewModel.getImageUri() != null) {
+            Glide.with(this).load(mViewModel.getImageUri()).into(image_view)
         }
-    }
-    /**
-     * Request permissions twice - if the user denies twice then show a toast about how to update
-     * the permission for storage. Also disable the button if we don't have access to pictures on
-     * the device.
-     */
-    private fun requestPermissionsIfNecessary() {
-        if (!checkAllPermissions()) {
-            if (mPermissionRequestCount < MAX_NUMBER_REQUEST_PERMISSIONS) {
-                mPermissionRequestCount += 1
-                ActivityCompat.requestPermissions(
-                    this,
-                    sPermissions.toTypedArray(),
-                    REQUEST_CODE_PERMISSIONS
-                )
-            } else {
-                Toast.makeText(
-                    this, R.string.set_permissions_in_settings,
-                    Toast.LENGTH_LONG
-                ).show()
-                main_text.setEnabled(false)
+
+        // Setup blur image file button
+        button.setOnClickListener { mViewModel.applyBlur(burLevel)}
+
+        // Setup view output image file button
+        see_btn.setOnClickListener {
+            val currentUri = mViewModel.getOutputUri()
+            if (currentUri != null) {
+                val actionView = Intent(Intent.ACTION_VIEW, currentUri)
+                if (actionView.resolveActivity(packageManager) != null) {
+                    startActivity(actionView)
+                }
             }
         }
+
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) { // 拖动进行时调用该方法
+                burLevel = progress
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) { // 拖动开始时调用该方法
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) { // 拖动结束时调用该方法
+            }
+
+        })
+
+        //show work state
+        mViewModel.getOutputWorkInfo().observe(this, Observer {
+            // Note that these next few lines grab a single WorkInfo if it exists
+            // This code could be in a Transformation in the ViewModel; they are included here
+            // so that the entire process of displaying a WorkInfo is in one location.
+
+            // If there are no matching work info, do nothing
+            if (it == null || it.isEmpty()) {
+                return@Observer
+            }
+
+            // We only care about the one output status.
+            // Every continuation has only one worker tagged TAG_OUTPUT
+            val workInfo = it.get(0)
+
+            val finished = workInfo.getState().isFinished()
+            if (!finished) {
+                showWorkInProgress()
+            } else {
+                showWorkFinished()
+
+                // Normally this processing, which is not directly related to drawing views on
+                // screen would be in the ViewModel. For simplicity we are keeping it here.
+                val outputData = workInfo.getOutputData()
+
+                val outputImageUri = outputData.getString(KEY_IMAGE_URI)
+
+                // If there is an output file show "See File" button
+                if (!TextUtils.isEmpty(outputImageUri)) {
+                    mViewModel.setOutputUri(outputImageUri)
+                    see_btn.setVisibility(View.VISIBLE)
+                }
+            }
+        })
     }
 
-    private fun checkAllPermissions(): Boolean {
-        var hasPermissions = true
-        for (permission in sPermissions) {
-            hasPermissions = hasPermissions and (ContextCompat.checkSelfPermission(
-                this, permission
-            ) == PackageManager.PERMISSION_GRANTED)
-        }
-        return hasPermissions
+    /**
+     * image blurred finished
+     */
+    private fun showWorkFinished(){
+        progress_bar.visibility = View.GONE
     }
 
-    /** Permission Checking  */
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            requestPermissionsIfNecessary() // no-op if permissions are granted already.
-        }
+    /**
+     * image blurred inProgress
+     */
+    private fun showWorkInProgress(){
+        progress_bar.visibility = View.VISIBLE
     }
-
 
 }
