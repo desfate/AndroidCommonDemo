@@ -3,8 +3,6 @@ package com.defate.mac.androidcommondemo.samples
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
-import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
 import com.defate.mac.androidcommondemo.R
 
 import kotlinx.android.synthetic.main.activity_scp.*
@@ -17,9 +15,11 @@ import kotlinx.android.synthetic.main.activity_scp.*
  */
 class ScpActivity: AppCompatActivity(){
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scp)
-        val navController = Navigation.findNavController(this, R.id.fragment_scp)
+        setSupportActionBar(toolbar)
+        getSupportActionBar()!!.setDisplayHomeAsUpEnabled(true); // 给左上角图标的左边加上一个返回的图标 。
     }
+
 }

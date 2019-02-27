@@ -1,5 +1,6 @@
 package com.defate.mac.androidcommondemo.samples.room
 
+import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
@@ -14,7 +15,7 @@ interface ScpDao{
     fun loadAllByIds(sids: IntArray): List<Scp>
 
     @Query("SELECT * FROM tb_scp scpName LIKE :names AND " + "scpCode LIKE :codes LIMIT 1")
-    fun findByName(names: String, codes: String): Scp
+    fun findByName(names: String, codes: String): LiveData<Scp>
 
 //    @Insert
 //    fun insertAll(vararg scps: Scp) //vararg 可变参数 类似于java里的。。。
