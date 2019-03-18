@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">common_android</string>
     <string name="reply_label">reply</string>
+
+    <string name="p_widget_address_title">所在地区</string>
+    <string name="p_widget_address_province">省</string>
+    <string name="p_widget_address_city">市</string>
+    <string name="p_widget_address_area">区</string>
+    <string name="p_widget_address_street">街道</string>
+    <string name="p_widget_address_choice">请选择</string>
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 地址控件 相关color-->
+    <color name="widget_address_txt_color">#1f2a3c</color>
+    <color name="widget_address_line_color">#e9e7e7</color>
+    <color name="widget_theme_color">#3e81eb</color>
+</resources>
