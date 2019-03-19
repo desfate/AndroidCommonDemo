@@ -34,6 +34,13 @@
         </activity>
 
         <activity android:name=".WidgetActivity">
+
+        </activity>
+
+        <activity android:name=".agentwebs.AgentWebActivity">
+        </activity>
+
+        <activity android:name=".agentwebs.AgentFragmentAcitivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
