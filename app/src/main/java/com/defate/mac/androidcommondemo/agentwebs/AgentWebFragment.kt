@@ -24,7 +24,7 @@ import java.util.HashMap
 import kotlinx.android.synthetic.main.toorbar_agentweb.*
 import kotlinx.android.synthetic.main.fragment_agentview.*
 
-class AgentWebFragment :Fragment(){
+open class AgentWebFragment :Fragment(){
 
     private val TAG by lazy { AgentWebFragment::class.java.simpleName }
 
@@ -34,7 +34,7 @@ class AgentWebFragment :Fragment(){
 
     private val mGson = Gson()
 
-    fun getUrl(): String{
+    open fun getUrl(): String? {
         return "https://www.baidu.com"
     }
 
@@ -349,7 +349,7 @@ class AgentWebFragment :Fragment(){
      */
     private var mMiddleWareWebClient: MiddlewareWebClientBase? = null
     private var mMiddleWareWebChrome: MiddlewareWebChromeBase? = null
-    protected fun getMiddlewareWebClient(): MiddlewareWebClientBase {
+    protected open fun getMiddlewareWebClient(): MiddlewareWebClientBase {
         this.mMiddleWareWebClient = object : MiddlewareWebViewClient() {
             /**
              *
