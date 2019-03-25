@@ -10,7 +10,9 @@ class ScpListViewModel(private val scpRepository: ScpRepository): ViewModel(){
 
     private var scpList = MutableLiveData<List<Scp>>()
 
-    fun getAllScp(){
-        scpList.apply { scpRepository.getScp() }
+    fun getAllScp(): MutableLiveData<List<Scp>>{
+        return scpList.apply { scpRepository.getScp() }
     }
+
+
 }

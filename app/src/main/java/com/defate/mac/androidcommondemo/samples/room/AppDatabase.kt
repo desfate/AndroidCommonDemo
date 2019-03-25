@@ -40,8 +40,7 @@ abstract class AppDatabase : RoomDatabase(){
                         val request = OneTimeWorkRequest.Builder(AssetsGsonWorker::class.java!!).build()
                         WorkManager.getInstance().enqueue(request)
                     }
-                })
-                .build()
+                }).build()
         }
     }
 }
