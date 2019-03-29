@@ -48,6 +48,10 @@
         </activity>
 
         <activity android:name=".rxjavas.RxDemoActivity">
+
+        </activity>
+
+        <activity android:name=".materials.CollapsingToolbarActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
