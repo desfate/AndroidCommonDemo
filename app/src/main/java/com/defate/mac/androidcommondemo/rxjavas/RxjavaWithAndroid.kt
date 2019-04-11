@@ -32,8 +32,7 @@ class RxjavaWithAndroid: AppCompatActivity(){
 //                })
 
 
-
-
+        }
     }
 
 }
