@@ -12,6 +12,17 @@ package com.defate.mac.androidcommondemo.rxjavas
 }
 }
  */
-class Translation{
 
-}
+
+data class Translation(
+    val content: Content,
+    val status: Int
+)
+
+data class Content(
+    val err_no: Int,
+    val from: String,
+    val `out`: String,
+    val to: String,
+    val vendor: String
+)

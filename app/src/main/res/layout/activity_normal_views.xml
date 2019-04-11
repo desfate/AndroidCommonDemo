@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_Input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:colorAccent="#00ff00"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:counterOverflowTextAppearance="@style/counterOverFlowAppearance"
+            app:counterTextAppearance="@style/counterAppearance"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/errorAppearance">
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="userName"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_Input_layout_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:colorAccent="#00ff00"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:counterOverflowTextAppearance="@style/counterOverFlowAppearance"
+            app:counterTextAppearance="@style/counterAppearance"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/errorAppearance"
+            app:layout_constraintTop_toBottomOf="@+id/text_Input_layout">
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="passWord"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.v7.widget.SwitchCompat
+            android:id="@+id/m_test_swCpt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/text_Input_layout_2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+    />
+
+    <android.support.design.widget.BottomNavigationView
+            android:id="@+id/mbottom_navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/buttom_menu">
+
+
+    </android.support.design.widget.BottomNavigationView>
+
+</android.support.constraint.ConstraintLayout>

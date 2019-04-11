@@ -1,25 +1,39 @@
 package com.defate.mac.androidcommondemo.rxjavas
 
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import com.defate.mac.androidcommondemo.R
+import kotlinx.android.synthetic.main.activity_rxjava_android.*
+import rx.Observable
+import rx.functions.Action1
+import java.util.concurrent.TimeUnit
+import java.util.function.Consumer
+
 /**
  * 用于展示rxjava在android中应用的场景
  * https://blog.csdn.net/carson_ho/article/details/79168723
  */
-class RxjavaWithAndroid{
+class RxjavaWithAndroid: AppCompatActivity(){
 
-    /**
-     * 这里有几类
-     *
-     * 1.网络请求轮询  （与创建操作符相关）
-     *
-     * 2.网络请求嵌套回调 （与变换操作符相关）
-     *
-     * 3.合并数据源  获取缓存数据源  联合判断 （组合 合并操作符）
-     *
-     * 4.线程操作  请求错误重试  轮询  （功能操作符）
-     *
-     * 5.功能防抖  联想搜索请求优化  （过滤操作符）
-     *
-     * 6.背压
-     */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_rxjava_android)
+
+        start_btn.setOnClickListener {
+            // 参数说明：
+            // 参数1 = 第1次延迟时间；
+            // 参数2 = 间隔时间数字；
+            // 参数3 = 时间单位；
+//            Observable.interval(2,1,TimeUnit.SECONDS)
+//                .doOnNext(
+//                    object: Consumer<Long>(){
+//
+//                    }
+//                })
+
+
+
+
+    }
 
 }

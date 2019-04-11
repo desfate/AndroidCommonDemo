@@ -45,47 +45,50 @@ import kotlinx.android.synthetic.main.activity_collapsing_toolbar.*
  * setExpanded (boolean expanded)设置AppbarLayout 是展开状态还是折叠状态,默认有动画
  *
  */
+/**
+ * Collapsingtoolbar + AppBarLayout + CardView + Palette
+ */
 class CollapsingToolbarActivity : AppCompatActivity(){
     var color: Int = 0  //根据图片生成的主题色
     var titleColors: Int = 0 //对比色
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_collapsing_toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = "Scp-001"
-
-        recyclerList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        recyclerList.adapter = MListAdapter<String>(
-            items = listOf("123","453","345","345","345","345","345","345","345","345","345"),
-            layoutCallBack = {
-                R.layout.items_normal_tv },
-            convertCallBack = { mViewHolder: MViewHolder, s: String, i: Int ->
-                mViewHolder.getView<TextView>(R.id.item_tv)?.setText(s + "position = i")
-                mViewHolder.getView<TextView>(R.id.item_tv_content)?.setText("aaaaa")
-                mViewHolder.getView<Button>(R.id.item_btn)?.setText(s)
-                mViewHolder.getView<Button>(R.id.item_btn)?.setOnClickListener {
-                    Navigation.findNavController(it).popBackStack()
-                }
-            })
-
-
-
-        Palette.from(BitmapFactory.decodeResource(resources,R.mipmap.scp)).generate { palette ->
-            val swatch: Palette.Swatch  = palette.mutedSwatch!!  //获取图片的主题色值
-            color = swatch.rgb
-            titleColors = palette.getLightMutedColor(Color.WHITE)
-            toolbar.setBackgroundColor(color)
-        }
-
-        /**
-         * 滑动时的回调
-         */
-        appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { p0, p1 ->
-            //verticalOffset始终为0以下的负数
-            val percent = Math.abs(p1 * 1.0f) / p0!!.totalScrollRange
-            toolbar.setBackgroundColor(changeAlpha(color, percent))
-        })
+//        setSupportActionBar(toolbar)
+//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+//        supportActionBar!!.title = "Scp-001"
+//
+//        recyclerList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+//        recyclerList.adapter = MListAdapter<String>(
+//            items = listOf("123","453","345","345","345","345","345","345","345","345","345"),
+//            layoutCallBack = {
+//                R.layout.items_normal_tv },
+//            convertCallBack = { mViewHolder: MViewHolder, s: String, i: Int ->
+//                mViewHolder.getView<TextView>(R.id.item_tv)?.setText(s + "position = i")
+//                mViewHolder.getView<TextView>(R.id.item_tv_content)?.setText("aaaaa")
+//                mViewHolder.getView<Button>(R.id.item_btn)?.setText(s)
+//                mViewHolder.getView<Button>(R.id.item_btn)?.setOnClickListener {
+//                    Navigation.findNavController(it).popBackStack()
+//                }
+//            })
+//
+//
+//
+//        Palette.from(BitmapFactory.decodeResource(resources,R.mipmap.scp)).generate { palette ->
+//            val swatch: Palette.Swatch  = palette.mutedSwatch!!  //获取图片的主题色值
+//            color = swatch.rgb
+//            titleColors = palette.getLightMutedColor(Color.WHITE)
+//            toolbar.setBackgroundColor(color)
+//        }
+//
+//        /**
+//         * 滑动时的回调
+//         */
+//        appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { p0, p1 ->
+//            //verticalOffset始终为0以下的负数
+//            val percent = Math.abs(p1 * 1.0f) / p0!!.totalScrollRange
+//            toolbar.setBackgroundColor(changeAlpha(color, percent))
+//        })
     }
 
 
