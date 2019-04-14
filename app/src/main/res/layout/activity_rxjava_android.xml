@@ -14,6 +14,12 @@
             app:showAsAction="always"
     />
 
+    <TextView android:id="@+id/search_tv"
+        android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/input_edt"
+    />
+
     <EditText
         android:id="@+id/input_edt"
         android:layout_width="match_parent"
@@ -25,8 +31,90 @@
         android:id="@+id/start_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/search_tv"
         android:text="test"
+    />
+
+
+    <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_Input_layout_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:colorAccent="#00ff00"
+            android:layout_below="@+id/start_btn"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:counterOverflowTextAppearance="@style/counterOverFlowAppearance"
+            app:counterTextAppearance="@style/counterAppearance"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/errorAppearance"
+            app:layout_constraintTop_toBottomOf="@+id/text_Input_layout">
+        <EditText
+                android:id="@+id/account_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="accountname"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_Input_layout_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:colorAccent="#00ff00"
+            android:layout_below="@+id/text_Input_layout_account"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:counterOverflowTextAppearance="@style/counterOverFlowAppearance"
+            app:counterTextAppearance="@style/counterAppearance"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/errorAppearance"
+            app:layout_constraintTop_toBottomOf="@+id/text_Input_layout">
+        <EditText
+                android:id="@+id/password_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="passWord"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_Input_layout_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:colorAccent="#00ff00"
+            android:layout_below="@+id/text_Input_layout_password"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:counterOverflowTextAppearance="@style/counterOverFlowAppearance"
+            app:counterTextAppearance="@style/counterAppearance"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/errorAppearance"
+            app:layout_constraintTop_toBottomOf="@+id/text_Input_layout">
+        <EditText
+                android:id="@+id/age_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="age"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+            android:id="@+id/submit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="submit"
+            android:layout_below="@+id/text_Input_layout_age"
+    />
+
+    <Button android:id="@+id/protect_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="submit"
+            android:layout_below="@+id/submit_btn"
     />
 
 </RelativeLayout>

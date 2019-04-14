@@ -66,7 +66,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
 
-
+    //rxbinding
+//    implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha2'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
     //GlidePalette
     implementation "com.github.florent37:glidepalette:2.1.2"
 
