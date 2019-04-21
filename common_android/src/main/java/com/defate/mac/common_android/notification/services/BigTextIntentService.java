@@ -15,14 +15,15 @@ limitations under the License.
  */
 package com.defate.mac.common_android.notification.services;
 
+import android.annotation.SuppressLint;
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import com.defate.mac.common_android.R;
 import com.defate.mac.common_android.notification.NotificationTools;
 import com.defate.mac.common_android.notification.data.BigTextStyleReminderAppData;
@@ -193,7 +194,7 @@ public class BigTextIntentService extends IntentService {
                 .setColor(getResources().getColor(R.color.colorPrimary))
                 .setCategory(Notification.CATEGORY_REMINDER)
                 .setPriority(Notification.PRIORITY_HIGH)
-                .setVisibility(Notification.VISIBILITY_PUBLIC)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .addAction(snoozeAction)
                 .addAction(dismissAction);
 

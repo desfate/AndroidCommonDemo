@@ -2,19 +2,12 @@ package com.defate.mac.common_android.bitmap;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
-import android.support.annotation.NonNull;
-import android.support.annotation.WorkerThread;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.UUID;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 
 public class BlurredTools {
 

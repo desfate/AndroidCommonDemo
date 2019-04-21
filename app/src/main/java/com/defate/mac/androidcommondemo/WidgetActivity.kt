@@ -1,10 +1,8 @@
 package com.defate.mac.androidcommondemo
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
+import androidx.appcompat.app.AppCompatActivity
 import com.defate.mac.common_android.widget.address.AddressDialog
 import kotlinx.android.synthetic.main.activity_widgets.*
 

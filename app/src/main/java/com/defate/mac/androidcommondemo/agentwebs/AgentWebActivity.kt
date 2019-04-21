@@ -2,11 +2,11 @@ package com.defate.mac.androidcommondemo.agentwebs
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
 import android.webkit.*
 import android.widget.LinearLayout
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.defate.mac.androidcommondemo.R
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.DefaultWebClient

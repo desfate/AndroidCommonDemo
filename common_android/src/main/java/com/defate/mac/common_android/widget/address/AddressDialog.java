@@ -5,10 +5,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.*;
+import androidx.annotation.NonNull;
 import com.defate.mac.common_android.R;
 import com.defate.mac.common_android.widget.address.data.AddressStore;
 

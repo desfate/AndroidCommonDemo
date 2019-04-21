@@ -1,7 +1,7 @@
 package com.defate.mac.androidcommondemo.samples.viewmodel
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.defate.mac.androidcommondemo.samples.repository.ScpRepository
 
 class ScpViewModelFactory (private val scpRepository: ScpRepository)

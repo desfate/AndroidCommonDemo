@@ -1,8 +1,8 @@
 package com.defate.mac.androidcommondemo.samples.adapter
 
-import android.support.v7.widget.RecyclerView
 import android.text.Layout
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
 typealias ConvertCallBack<T> = (holder: MViewHolder, data: T, position: Int) -> Unit
 typealias LayoutCallBack = (layoutId: Int) -> Int

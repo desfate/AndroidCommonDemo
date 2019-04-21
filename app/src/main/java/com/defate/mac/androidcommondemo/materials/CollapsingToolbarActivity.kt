@@ -2,19 +2,17 @@ package com.defate.mac.androidcommondemo.materials
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
-import android.support.design.widget.AppBarLayout
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.graphics.Palette
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.view.Gravity
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
+import androidx.palette.graphics.Palette
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.defate.mac.androidcommondemo.R
 import com.defate.mac.androidcommondemo.samples.adapter.MListAdapter
 import com.defate.mac.androidcommondemo.samples.adapter.MViewHolder
+import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_collapsing_toolbar.*
 
 /**
@@ -54,41 +52,41 @@ class CollapsingToolbarActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_collapsing_toolbar)
-//        setSupportActionBar(toolbar)
-//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-//        supportActionBar!!.title = "Scp-001"
-//
-//        recyclerList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-//        recyclerList.adapter = MListAdapter<String>(
-//            items = listOf("123","453","345","345","345","345","345","345","345","345","345"),
-//            layoutCallBack = {
-//                R.layout.items_normal_tv },
-//            convertCallBack = { mViewHolder: MViewHolder, s: String, i: Int ->
-//                mViewHolder.getView<TextView>(R.id.item_tv)?.setText(s + "position = i")
-//                mViewHolder.getView<TextView>(R.id.item_tv_content)?.setText("aaaaa")
-//                mViewHolder.getView<Button>(R.id.item_btn)?.setText(s)
-//                mViewHolder.getView<Button>(R.id.item_btn)?.setOnClickListener {
-//                    Navigation.findNavController(it).popBackStack()
-//                }
-//            })
-//
-//
-//
-//        Palette.from(BitmapFactory.decodeResource(resources,R.mipmap.scp)).generate { palette ->
-//            val swatch: Palette.Swatch  = palette.mutedSwatch!!  //获取图片的主题色值
-//            color = swatch.rgb
-//            titleColors = palette.getLightMutedColor(Color.WHITE)
-//            toolbar.setBackgroundColor(color)
-//        }
-//
-//        /**
-//         * 滑动时的回调
-//         */
-//        appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { p0, p1 ->
-//            //verticalOffset始终为0以下的负数
-//            val percent = Math.abs(p1 * 1.0f) / p0!!.totalScrollRange
-//            toolbar.setBackgroundColor(changeAlpha(color, percent))
-//        })
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = "Scp-001"
+
+        recyclerList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        recyclerList.adapter = MListAdapter<String>(
+            items = listOf("123","453","345","345","345","345","345","345","345","345","345"),
+            layoutCallBack = {
+                R.layout.items_normal_tv },
+            convertCallBack = { mViewHolder: MViewHolder, s: String, i: Int ->
+                mViewHolder.getView<TextView>(R.id.item_tv)?.setText(s + "position = i")
+                mViewHolder.getView<TextView>(R.id.item_tv_content)?.setText("aaaaa")
+                mViewHolder.getView<Button>(R.id.item_btn)?.setText(s)
+                mViewHolder.getView<Button>(R.id.item_btn)?.setOnClickListener {
+                    Navigation.findNavController(it).popBackStack()
+                }
+            })
+
+
+
+        Palette.from(BitmapFactory.decodeResource(resources,R.mipmap.scp)).generate { palette ->
+            val swatch: Palette.Swatch  = palette?.mutedSwatch!!  //获取图片的主题色值
+            color = swatch.rgb
+            titleColors = palette.getLightMutedColor(Color.WHITE)
+            toolbar.setBackgroundColor(color)
+        }
+
+        /**
+         * 滑动时的回调
+         */
+        appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { p0, p1 ->
+            //verticalOffset始终为0以下的负数
+            val percent = Math.abs(p1 * 1.0f) / p0!!.totalScrollRange
+            toolbar.setBackgroundColor(changeAlpha(color, percent))
+        })
     }
 
 

@@ -2,7 +2,7 @@ package com.defate.mac.androidcommondemo.samples
 
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.defate.mac.androidcommondemo.R
 
 import kotlinx.android.synthetic.main.activity_scp.*

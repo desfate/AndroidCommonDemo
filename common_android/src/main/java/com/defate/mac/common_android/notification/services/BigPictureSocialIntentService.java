@@ -16,14 +16,10 @@ limitations under the License.
 package com.defate.mac.common_android.notification.services;
 
 import android.app.IntentService;
-import android.app.Notification;
-import android.app.PendingIntent;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.RemoteInput;
 import android.util.Log;
+import androidx.core.app.RemoteInput;
 
 
 /**

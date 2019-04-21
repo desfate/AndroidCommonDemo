@@ -1,7 +1,7 @@
 package com.defate.mac.androidcommondemo.samples.utils
 
 //数据库名称
-const val DATABASE_NAME = "scp-db"
+const val DATABASE_NAME = "scp"
 //获取json文件名称
 const val SCP_DATA_FILENAME = "scp.json"
 //PermissionActivity 向 BlurredActivity 跳转传递的key

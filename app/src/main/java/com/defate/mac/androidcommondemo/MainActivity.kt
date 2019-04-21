@@ -2,15 +2,16 @@ package com.defate.mac.androidcommondemo
 
 import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.defate.mac.common_android.notification.NotificationServices
 import com.defate.mac.common_android.notification.data.MessagingStyleCommsAppData
 import com.defate.mac.common_android.screen.ScreenTools
+import com.google.android.material.snackbar.Snackbar
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
 //        setContentView(customDrawableView)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbar as Toolbar?)
 
         var bigTextStyleReminderAppData: MessagingStyleCommsAppData = MessagingStyleCommsAppData.getInstance(this)
         bigTextStyleReminderAppData.setmClazz(MainActivity::class.java)

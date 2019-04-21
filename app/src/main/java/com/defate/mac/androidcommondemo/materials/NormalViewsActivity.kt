@@ -1,22 +1,15 @@
 package com.defate.mac.androidcommondemo.materials
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.support.design.internal.BottomNavigationItemView
-import android.support.design.internal.BottomNavigationMenuView
-import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.SwitchCompat
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
-import android.widget.CompoundButton
-import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.defate.mac.androidcommondemo.R
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_normal_views.*
 
 /**

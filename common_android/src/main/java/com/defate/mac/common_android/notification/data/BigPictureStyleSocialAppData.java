@@ -1,7 +1,7 @@
 package com.defate.mac.common_android.notification.data;
 
 import android.app.NotificationManager;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import com.defate.mac.common_android.R;
 import com.defate.mac.common_android.notification.data.base.MockNotificationData;
 

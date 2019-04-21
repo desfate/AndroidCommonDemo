@@ -1,7 +1,7 @@
 package com.defate.mac.common_android.toolbars;
 
 import android.content.Context;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * 一个专用区域，可以标识您的应用并指示用户在应用中的位置。

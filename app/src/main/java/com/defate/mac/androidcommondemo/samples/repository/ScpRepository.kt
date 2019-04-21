@@ -11,7 +11,7 @@ import com.defate.mac.androidcommondemo.samples.room.ScpDao
 class ScpRepository private constructor(private val dao: ScpDao){
 
     fun getScp() = dao.getAll()
-    fun getByName(name: String, code: String) = dao.findByName(name, code)
+//    fun getByName(name: String, code: String) = dao.findByName(name, code)
     fun insert(scp: List<Scp>) = dao.insertAll(scp)
 
     companion object {

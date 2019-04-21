@@ -2,9 +2,9 @@ package com.defate.mac.common_android.notification.data;
 
 import android.app.NotificationManager;
 import android.content.Context;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.Person;
-import android.support.v4.graphics.drawable.IconCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.Person;
+import androidx.core.graphics.drawable.IconCompat;
 import com.defate.mac.common_android.R;
 import com.defate.mac.common_android.notification.NotificationTools;
 import com.defate.mac.common_android.notification.data.base.MockNotificationData;

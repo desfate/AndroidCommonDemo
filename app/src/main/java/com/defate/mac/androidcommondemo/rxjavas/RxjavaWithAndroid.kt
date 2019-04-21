@@ -1,32 +1,27 @@
 package com.defate.mac.androidcommondemo.rxjavas
 
 import android.annotation.SuppressLint
-import android.arch.persistence.room.RxRoom
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.defate.mac.androidcommondemo.R
 import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.Observable
-import io.reactivex.ObservableSource
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.BiFunction
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
-import io.reactivex.functions.Function
 import kotlinx.android.synthetic.main.activity_rxjava_android.*
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import io.reactivex.functions.Function3
 
 
 import java.util.concurrent.TimeUnit
 import okhttp3.OkHttpClient
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import java.io.IOException
-import java.lang.Exception
 
 
 /**

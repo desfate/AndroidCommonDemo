@@ -1,7 +1,8 @@
 package com.defate.mac.androidcommondemo
 
 import android.content.Context
-import android.support.v4.app.NotificationCompat
+import androidx.core.app.NotificationCompat
+
 import com.defate.mac.common_android.notification.NotificationTools
 
 /**

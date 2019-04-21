@@ -1,9 +1,9 @@
 package com.defate.mac.androidcommondemo.samples.viewmodel
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.ViewModel
 import android.net.Uri
 import android.text.TextUtils
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.work.*
 import com.defate.mac.androidcommondemo.samples.utils.IMAGE_MANIPULATION_WORK_NAME
 import com.defate.mac.androidcommondemo.samples.utils.KEY_IMAGE_URI
@@ -22,7 +22,7 @@ class BlurredViewModel : ViewModel(){
     private var mOutputUri: Uri? = null
 
     private var mWorkManager: WorkManager = WorkManager.getInstance()
-    private var mSavedWorkInfo: LiveData<List<WorkInfo>>  = mWorkManager.getWorkInfosByTagLiveData(TAG_OUTPUT);
+    private var mSavedWorkInfo: LiveData<List<WorkInfo>> = mWorkManager.getWorkInfosByTagLiveData(TAG_OUTPUT);
 
     /**
      * Create the WorkRequest to apply the blur and save the resulting image

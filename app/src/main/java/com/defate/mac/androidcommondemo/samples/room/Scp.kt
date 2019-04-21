@@ -1,9 +1,8 @@
 package com.defate.mac.androidcommondemo.samples.room
 
-import android.arch.persistence.room.ColumnInfo
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.Index
-import android.arch.persistence.room.PrimaryKey
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 /**
  * Scp 实体类
@@ -33,11 +32,10 @@ import android.arch.persistence.room.PrimaryKey
 //仅当您的应用程序具有严格的磁盘空间要求或者您有时，才使用`@ Fts3`
 //需要与较旧的SQLite版本兼容。
 
-
-@Entity(tableName = "tb_scp", indices = arrayOf(Index(value = ["scp_code","scp_name"], unique = true)))//通过code和name索引
-class Scp(
-    @PrimaryKey(autoGenerate = true) var id: Int?,  //自增模式
-    @ColumnInfo(name = "scp_code") var scpCode: String?,
-    @ColumnInfo(name = "scp_name") var scpName: String?,
-    @ColumnInfo(name = "scp_content") var scpContent: String?
+@Entity(tableName = "scp")
+public class Scp(
+    @PrimaryKey @ColumnInfo(name = "id") val id: Int,
+    val scpName: String,
+    val scpCode: String,
+    val scpContent: String
 )

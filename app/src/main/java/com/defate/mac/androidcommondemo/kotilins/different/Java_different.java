@@ -3,7 +3,7 @@ package com.defate.mac.androidcommondemo.kotilins.different;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.res.ResourcesCompat;
+import androidx.core.content.res.ResourcesCompat;
 import com.defate.mac.androidcommondemo.R;
 
 public class Java_different {

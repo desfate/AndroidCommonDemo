@@ -1,8 +1,7 @@
 package com.defate.mac.androidcommondemo.samples.viewmodel
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.defate.mac.androidcommondemo.samples.repository.ScpRepository
 import com.defate.mac.androidcommondemo.samples.room.Scp
 

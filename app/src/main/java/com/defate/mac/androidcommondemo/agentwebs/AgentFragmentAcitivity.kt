@@ -1,12 +1,11 @@
 package com.defate.mac.androidcommondemo.agentwebs
 
 import android.os.Bundle
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentTransaction
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.defate.mac.androidcommondemo.R
 import com.defate.mac.androidcommondemo.agentwebs.sonic.SonicJavaScriptInterface.PARAM_CLICK_TIME
-import io.reactivex.annotations.NonNull
 
 class AgentFragmentAcitivity: AppCompatActivity(){
 
